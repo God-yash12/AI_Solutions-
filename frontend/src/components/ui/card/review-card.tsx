@@ -34,52 +34,51 @@ const ReviewCard: React.FC<ReviewProps> = ({
       <FaStar
         key={index}
         color={index < ratings ? "#FFD700" : "#e4e5e9"} 
-        size={20}
+        size={24} // Adjusted for larger star size
       />
     ));
   };
 
   return (
-    <div className="max-w-sm mx-auto bg-white rounded-lg shadow-md overflow-hidden p-6">
+    <div className="mx-auto bg-white rounded-lg shadow-2xl overflow-hidden p-8 max-w-3xl">
       {/* Image */}
-      <div className="flex justify-center mb-4">
+      <div className="flex justify-center mb-6">
         <img
-          src={image || "https://via.placeholder.com/100"} 
+          src={image} 
           alt={`${name}'s review`}
-          className="w-20 h-20 rounded-full object-cover"
+          className="w-32 h-32 rounded-full object-cover border-4 border-gray-200" 
         />
       </div>
 
       {/* Description */}
-      <p className="text-gray-700 text-center mb-4">{description}</p>
+      <p className="text-gray-700 text-center text-xl mb-6">{description}</p>
 
       {/* Ratings */}
-      <div className="flex justify-center mb-4">{renderStars()}</div>
+      <div className="flex justify-center mb-6">{renderStars()}</div>
 
       {/* Name, Company, and Position */}
-      <div className="text-center">
-        <h3 className="text-lg font-bold">{name}</h3>
-        <p className="text-sm text-gray-500">
+      <div className="text-center mb-6">
+        <h3 className="text-2xl font-semibold">{name}</h3>
+        <p className="text-lg text-gray-500">
           {position} at {company}
         </p>
       </div>
 
       {/* Admin Buttons */}
       {isAdmin && (
-        <div className="mt-6 flex justify-around gap-4">
+        <div className="mt-6 flex justify-center gap-6">
           <SecondaryButton
-            disabled = {disabled}
+            disabled={disabled}
             onClick={() => onApprove && onApprove(_id)}
-            className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
+            className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-all duration-300"
           >
             Approve
           </SecondaryButton>
           <SecondaryButton
             onClick={() => onDelete && onDelete(_id)}
-            className={`bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 ${
+            className={`bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition-all duration-300 ${
               disabled ? "bg-gray-400 cursor-not-allowed hover:bg-gray-400" : ""
             }`}
-            
           >
             Delete
           </SecondaryButton>

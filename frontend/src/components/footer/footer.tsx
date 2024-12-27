@@ -8,7 +8,9 @@ import { Link } from "react-router-dom";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#001539] text-gray-300 py-6 mt-10">
+ 
+
+    <footer className="bg-[#001539] text-gray-300 py-6">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 px-16">
           {/* column1: logoa and info */}
@@ -40,7 +42,7 @@ const Footer: React.FC = () => {
               </li>
               <li className="flex items-center">
                 <MdArrowForward className="text-blue-900 mr-2" size={18} />
-                <Link to="/event-list" className="text-gray-300 hover:text-white transition duration-200">
+                <Link to="/events" className="text-gray-300 hover:text-white transition duration-200">
                   Event
                 </Link>
               </li>
@@ -52,7 +54,7 @@ const Footer: React.FC = () => {
               </li>
               <li className="flex items-center">
                 <MdArrowForward className="text-blue-900 mr-2" size={18} />
-                <Link to="/blog-list" className="text-gray-300 hover:text-white transition duration-200">
+                <Link to="/blogs" className="text-gray-300 hover:text-white transition duration-200">
                   Blogs
                 </Link>
               </li>
@@ -142,6 +144,7 @@ const Footer: React.FC = () => {
         </div>
       </div>
     </footer>
+   
   );
 };
 

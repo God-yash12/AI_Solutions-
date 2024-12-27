@@ -6,11 +6,14 @@ export default function UserLayout() {
   return (
     <div>
       <Navbar />
-      <section >
+
+      <section className="mb-4">
         <main>
           <Outlet />
         </main>
+
       </section>
+
       <Footer />
     </div>
   );

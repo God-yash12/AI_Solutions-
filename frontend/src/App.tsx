@@ -8,7 +8,6 @@ import BlogPage from "./pages/blog-page";
 import InquiryPage from "./pages/inquiry-page";
 import { ToastContainer } from "react-toastify";
 import { RequireAuth } from "./auth/require-auth";
-import LandingPage from "./pages/home-page";
 import EventLists from "./components/dashboard/events/event-lists";
 import EventDetails from "./components/landing-pages/event/event-details";
 import PersistLogin from "./auth/persist-login";
@@ -19,8 +18,8 @@ import UserLayout from "./components/layout/user-layout";
 import LandingPageEvents from "./components/landing-pages/event/event-lists-page";
 import BlogLists from "./components/landing-pages/blogs/blog-lists-page";
 import ContactForm from "./components/form/contact-form";
-import Home from "./components/landing-pages/home/home";
 import AboutPage from "./components/landing-pages/about/about";
+import LandingPage from "./pages/landing-page";
 
 function App() {
   return (
@@ -31,7 +30,6 @@ function App() {
         <Routes>
           <Route element={<UserLayout />} >
             <Route path="/" element={<LandingPage />} />
-            <Route path="/home" element={<Home />} />
             <Route path="about" element={<AboutPage />} />
             <Route path="event" element={<LandingPageEvents />} />
             <Route path="blogs" element={<BlogLists />} />
