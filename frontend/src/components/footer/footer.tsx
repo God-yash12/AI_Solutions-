@@ -30,9 +30,9 @@ const Footer: React.FC = () => {
             <ul className="space-y-2">
               <li className="flex items-center">
                 <MdArrowForward className="text-blue-900 mr-2" size={18} />
-                <Link to="/" className="text-gray-300 hover:text-white transition duration-200">
+                <a href="#" className="text-gray-300 hover:text-white transition duration-200">
                   Home
-                </Link>
+                </a>
               </li>
               <li className="flex items-center">
                 <MdArrowForward className="text-blue-900 mr-2" size={18} />

@@ -16,8 +16,6 @@ type EventListsResponse = {
 };
 
 export const EventService = () => {
-
-
   const axiosPrivate = useAxiosPrivateEvent();
 
   // Get event lists  
@@ -36,7 +34,17 @@ export const EventService = () => {
   });
 
 
-  return { data, isLoading, error, }
+  const getTotalEvents = async () => {
+    const response = await axiosPrivate.get('/total-events');
+    return response.data;
+  }
+
+  const { data: totalEventData, error: totalEventError } = useQuery({
+    queryKey: ["eventlists"],
+    queryFn: getTotalEvents,
+  })
+
+  return { data, isLoading, error, totalEventData, totalEventError }
 
 
 };

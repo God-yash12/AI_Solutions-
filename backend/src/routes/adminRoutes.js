@@ -15,6 +15,7 @@ router.get('/get-events',  controller.getEventByCategory)
 router.get('/get-event/:id', controller.getEventById)
 router.delete('/delete-event/:id', controller.deleteEventById);
 router.put('/update-event/:id', upload.array('images'), controller.updateEvent)
+router.get("/total-events", controller.totalEvents)
 router.get('/refresh', validateToken.validateTokenController)
 
 module.exports=router

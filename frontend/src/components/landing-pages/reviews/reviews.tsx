@@ -4,6 +4,7 @@ import ReviewCard from "../../ui/card/review-card";
 import UserReviewForm from "../../form/user-reviews-form";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa"; 
 import Loader from "../../loader/loader";
+import InquiryForm from "../../form/Inquiry-form";
 
 const Review = () => {
   const { approvedData, approveLoading, approveError } = ReviewServices();
@@ -106,7 +107,7 @@ const Review = () => {
           ))}
         </div>
       </div>
-
+      <InquiryForm />
       <UserReviewForm />
     </div>
   );

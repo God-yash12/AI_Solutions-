@@ -4,20 +4,21 @@ import {
   MdDashboard,
   MdLogout,
   MdEventNote,
+  MdContactPage,
 } from "react-icons/md";
-import { FaBars, FaNewspaper, FaStar, FaUserSecret } from "react-icons/fa";
+import { FaBars, FaNewspaper,FaClipboardList, FaStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AdminService } from "../../services/admin-login";
 
 
 const menuItems = [
   { name: "Dashboard", icon: MdDashboard, link: "/dashboard" },
-  { name: "Inquiries", icon: FaUserSecret, link: "/dashboard/inquiries" },
+  { name: "Contacts", icon: MdContactPage, link: "/dashboard/inquiries" },
   { name: "Reviews", icon: FaStar, link: "/dashboard/user-reviews" },
   { name: "Publish Event", icon: MdEventNote, link: "/dashboard/create-event" },
   { name: "Publish Blog", icon: FaNewspaper, link: "/dashboard/publish-blog" },
-  { name: "Event Lists", icon: FaNewspaper, link: "/dashboard/get-events" },
-  { name: "Blogs Lists", icon: FaNewspaper, link: "/dashboard/get-blogs" },
+  { name: "Event Lists", icon: FaClipboardList, link: "/dashboard/get-events" },
+  { name: "Blogs Lists", icon: FaClipboardList, link: "/dashboard/get-blogs" },
 ];
 
 const Sidebar = () => {

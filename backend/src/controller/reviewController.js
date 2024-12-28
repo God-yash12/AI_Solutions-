@@ -121,6 +121,15 @@ const approveReview = async (req, res) => {
   }
 };
 
+const getTotalReviews = async (req, res) => {
+  try {
+    const totalReviews = await ReviewModel.countDocuments();
+    res.status(200).json({message: "Total review has been retrieved", data: totalReviews})
+  } catch (error) {
+    console.log("Failed to retrieve total events")
+    res.status(500).json({message: "Failed to retrieve reviews count"})
+  }
+};
 
 
 
@@ -149,4 +158,5 @@ module.exports = {
   deleteReview,
   approveReview,
   getApprovedReviews,
+  getTotalReviews
 };

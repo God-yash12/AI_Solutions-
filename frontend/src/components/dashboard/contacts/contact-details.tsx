@@ -16,7 +16,7 @@ const ContactDetailsTable = () => {
   return (
     <div>
       {isLoading && <Loader />}
-      <Table headings={headings}>
+      <Table headings={headings}> 
         {contactsList.map((contact) => (
           <tr key={contact._id} className="border-b hover:bg-gray-100">
             <td className="px-4 py-2">{contact.name}</td>

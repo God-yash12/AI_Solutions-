@@ -18,8 +18,9 @@ import UserLayout from "./components/layout/user-layout";
 import LandingPageEvents from "./components/landing-pages/event/event-lists-page";
 import BlogLists from "./components/landing-pages/blogs/blog-lists-page";
 import ContactForm from "./components/form/contact-form";
-import AboutPage from "./components/landing-pages/about/about";
+import AboutPage from "./components/landing-pages/about/about-page";
 import LandingPage from "./pages/landing-page";
+import ScrollToTop from "./utils/scroll-to-top";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
     <>
       <ToastContainer />
       <Router>
+      <ScrollToTop /> 
         <Routes>
           <Route element={<UserLayout />} >
             <Route path="/" element={<LandingPage />} />

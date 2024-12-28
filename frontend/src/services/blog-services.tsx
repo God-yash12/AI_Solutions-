@@ -1,4 +1,4 @@
-import useAxiosPrivateBlog from "../api/blog-instance";
+import useAxiosPrivateBlog from "../api/blog-api";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -68,7 +68,7 @@ export const BlogServices = () => {
     const getAllBlogs = async (): Promise<BlogProps[]> => {
         const response = await axiosBlogInstance.get("/get-blogs");
         return response.data.data;
-    };
+    };  
 
     const { data, isLoading, error } = useQuery<BlogProps[], Error>({
         queryKey: ["blogs"],

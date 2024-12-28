@@ -11,6 +11,7 @@ const adminRoutes = require ("./routes/adminRoutes")
 const contactRoute = require("./routes/contactRoutes")
 const reviewRoute = require("./routes/reviewRoute");
 const blogRoute = require ("./routes/blogRoutes")
+const InquiryRoute = require("./routes/inquiryRoute")
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -38,6 +39,7 @@ app.use("/api/admin", adminRoutes)
 app.use("/api/inquiry", contactRoute)
 app.use("/api/review", reviewRoute)
 app.use("/api/blog", blogRoute)
+app.use("/api/inquiry", InquiryRoute )
 
 
 

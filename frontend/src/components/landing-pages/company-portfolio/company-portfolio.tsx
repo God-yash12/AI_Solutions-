@@ -1,24 +1,26 @@
-import PortfolioImg1 from "../../../assets/images/portfolioImage.png";
 import HtlImage from "../../../assets/images/htlImage.png"
+import Daraz from "../../../assets/images/daraz.png";
+import Esewa from "../../../assets/images/esewa.png";
+import Ismt from "../../../assets/images/ismt.png"
 import { Link } from "react-router-dom";
 import SecondaryButton from "../../button/secondary-button";
 
 const data = [
   {
     id: 1,
-    img: PortfolioImg1,
+    img: Esewa,
     companyName: "Esewa",
     title: "Esewa Custom AI Agent Bot",
   },
   {
     id: 2,
-    img: PortfolioImg1,
+    img: Ismt,
     companyName: "ISMT College",
     title: "AI Powered Consulting bot",
   },
   {
     id: 3,
-    img: PortfolioImg1,
+    img: Daraz,
     companyName: "Daraz",
     title: "AI powered predictive analytics bot to increase sales",
   },

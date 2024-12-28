@@ -77,7 +77,7 @@ const EventLists: React.FC = () => {
                 key={event.id}
                 eventId={event._id}
                 title={event.title}
-                date={event.date}
+                date={new Date(event.date).toLocaleString()}
                 image={event.images}
                 isAdmin={true}
                 onDelete={deleteEvent}

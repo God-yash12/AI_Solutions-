@@ -1,15 +1,15 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const contactSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: [true, 'Name is required'],
+    required: [true, "Name is required"],
     trim: true,
-    minlength: [2, 'Name must be at least 2 characters long'],
+    minlength: [2, "Name must be at least 2 characters long"],
   },
   email: {
     type: String,
-    required: [true, 'Email is required'],
+    required: [true, "Email is required"],
     trim: true,
     // lowercase: true,
     // validate: {
@@ -33,12 +33,12 @@ const contactSchema = new mongoose.Schema({
   },
   company: {
     type: String,
-    required: [true, 'Company name is required'],
+    required: [true, "Company name is required"],
     trim: true,
   },
   country: {
     type: Object,
-    required: [true, 'Country is required'],
+    required: [true, "Country is required"],
     trim: true,
   },
   jobTitle: {
@@ -57,4 +57,4 @@ const contactSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model('Contact', contactSchema);
+module.exports = mongoose.model("Contact", contactSchema);

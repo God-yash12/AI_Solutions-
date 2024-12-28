@@ -34,7 +34,7 @@ const ReviewCard: React.FC<ReviewProps> = ({
       <FaStar
         key={index}
         color={index < ratings ? "#FFD700" : "#e4e5e9"} 
-        size={24} // Adjusted for larger star size
+        size={24} 
       />
     ));
   };
@@ -70,13 +70,13 @@ const ReviewCard: React.FC<ReviewProps> = ({
           <SecondaryButton
             disabled={disabled}
             onClick={() => onApprove && onApprove(_id)}
-            className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-all duration-300"
+            className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 hover:text-white transition-all duration-300"
           >
             Approve
           </SecondaryButton>
           <SecondaryButton
             onClick={() => onDelete && onDelete(_id)}
-            className={`bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition-all duration-300 ${
+            className={`bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 hover:text-white transition-all duration-300 ${
               disabled ? "bg-gray-400 cursor-not-allowed hover:bg-gray-400" : ""
             }`}
           >

@@ -1,14 +1,12 @@
-import { useRef } from "react";
 import HomeImage from "../../../assets/images/Home-image.png";
 import PrimaryButton from "../../button/primary-button";
 import SecondaryButton from "../../button/secondary-button";
+import { useNavigate } from "react-router-dom";
+
 
 const Home = () => {
-  const itServicesRef = useRef<HTMLDivElement>(null);
-
-  const scrollToITServices = () => {
-    itServicesRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
+  
+  const navigate = useNavigate()
 
   return (
     <div>
@@ -34,8 +32,8 @@ const Home = () => {
             visit our services and completed projects to get to know about us.
           </p>
           <div className="mt-8 flex space-x-4">
-            <PrimaryButton onClick={scrollToITServices}>How IT Works</PrimaryButton>
-            <SecondaryButton>IT Services</SecondaryButton>
+            <PrimaryButton onClick={() => navigate('/')}>What we do</PrimaryButton>
+            <SecondaryButton >IT Services</SecondaryButton>
           </div>
         </div>
 

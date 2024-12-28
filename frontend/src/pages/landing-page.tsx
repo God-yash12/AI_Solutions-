@@ -1,3 +1,4 @@
+import AboutUsLandingPage from "../components/landing-pages/about/about"
 import CompanyPortfolio from "../components/landing-pages/company-portfolio/company-portfolio"
 import Home from "../components/landing-pages/home/home"
 import ReviewAndRatings from "../components/landing-pages/reviews/reviews"
@@ -8,6 +9,7 @@ const LandingPage = () => {
     <div className="flex flex-col">
       <div>
         <Home />
+        <AboutUsLandingPage />
         <ServiceInfoCard />
       </div>
       <div>

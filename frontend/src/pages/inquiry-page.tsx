@@ -1,6 +1,6 @@
 import ContactDetailsTable from "../components/dashboard/contacts/contact-details"
 
-const InquiryPage = () => {
+const ContactDetails = () => {
   return (
     <div>
       <ContactDetailsTable />
@@ -8,4 +8,4 @@ const InquiryPage = () => {
   )
 }
 
-export default InquiryPage
+export default ContactDetails
