@@ -146,7 +146,7 @@ const PublishEvent: React.FC<PublishEventProps> = () => {
           {/* Event Details */}
           <div>
             <TextareaAutosize
-              className="text-lg lg:w-[40rem] md:w-80 sm:w-72 font-sans font-normal leading-5 px-3 py-4 rounded-lg shadow-md border border-solid border-slate-300 focus:border-purple-500"
+              className="text-lg lg:w-[40rem] w-[20rem] font-sans font-normal leading-5 py-4 rounded-lg shadow-md border border-solid border-slate-300 focus:border-purple-500"
               placeholder="Event Details"
               {...register('eventDetails')}
             />

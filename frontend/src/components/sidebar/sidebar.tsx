@@ -53,7 +53,7 @@ const Sidebar = () => {
       {/* Sidebar */}
       <nav
         ref={sidebarRef}
-        className={`bg-[#37545C] h-screen lg:w-[350px] w-[250px] sm:w-[280px] md:w-[240px] flex flex-col fixed top-0 left-0 transition-transform transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+        className={`bg-[#37545C] h-screen z-50 lg:w-[350px] w-[250px] sm:w-[280px] md:w-[240px] flex flex-col fixed top-0 left-0 transition-transform transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"
           } lg:translate-x-0`}
       >
         {/* Logo Section */}

@@ -126,7 +126,16 @@ export const BlogServices = () => {
       });
       
 
-    
+    const getBlogCount = async () => {
+      const response = await axiosBlogInstance.get('/total-blog');
+      console.log(response.data.data);
+      return response.data.data;
+    }
 
-    return { data, isLoading, error, onDeleteBlog, blogData, isFetching, errorBlogDetail, register, setValue, handleSubmit, errors, onSubmit };
+    const { data: totalBLog, isLoading: isLoadingBlogs, error: countBlogError } = useQuery({
+      queryKey: ["blogs"],
+      queryFn: getBlogCount
+    })
+
+    return { data, isLoading, error, onDeleteBlog, blogData, isFetching, errorBlogDetail, register, setValue, handleSubmit, errors, onSubmit, totalBLog, countBlogError, isLoadingBlogs };
 };

@@ -65,8 +65,6 @@ const getAllBlogs = async (req, res) => {
 const deleteBlog = async (req, res) => {
   try {
     const id = req.params.id;
-    console.log("blog id", id);
-
     const checkBlog = await Blog.findById(id);
 
     if (!checkBlog) {

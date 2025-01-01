@@ -34,17 +34,18 @@ export const EventService = () => {
   });
 
 
+  //event count
   const getTotalEvents = async () => {
     const response = await axiosPrivate.get('/total-events');
     return response.data;
   }
 
-  const { data: totalEventData, error: totalEventError } = useQuery({
+  const { data: totalEventData, isLoading: isLoadingEvents, error: totalEventError } = useQuery({
     queryKey: ["eventlists"],
     queryFn: getTotalEvents,
   })
 
-  return { data, isLoading, error, totalEventData, totalEventError }
+  return { data, isLoading, error, totalEventData, totalEventError, isLoadingEvents }
 
 
 };

@@ -10,7 +10,7 @@ const EventLists: React.FC = () => {
 
 
   const getEventLists = async () => {
-    const response = await axios.get("http://localhost:5004/api/admin/get-events");
+    const response = await axios.get("http://localhost:5000/api/admin/get-events");
     return {
       previousEvent: response.data.previousEvent,
       upcomingEvent: response.data.upcomingEvent,
@@ -30,7 +30,7 @@ const EventLists: React.FC = () => {
       return;
     }
     try {
-      const response = await axios.delete(`http://localhost:5004/api/admin/delete-event/${id}`);
+      const response = await axios.delete(`http://localhost:5000/api/admin/delete-event/${id}`);
       return response.data;
     } catch (error) {
       console.error("Error deleting event:", error);

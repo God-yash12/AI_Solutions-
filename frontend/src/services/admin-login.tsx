@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import useAxiosPrivate from "../api/axios";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "react-toastify";
@@ -84,6 +84,19 @@ export function AdminService() {
   
   
 
-  return { register, handleSubmit, errors, onSubmit, handleLogout }
+  const getDashboardCounts = async () => {
+    const response = await axiosPrivate.get("/dashboard-counter");
+    console.log(response.data.data)
+    return response.data.data;
+  }
+
+  const { data, isLoading, error } = useQuery({
+      queryKey: ["counts"],
+      queryFn: getDashboardCounts,
+    })
+
+    
+
+  return { register, handleSubmit, errors, onSubmit, handleLogout, data, isLoading, error }
 
 }

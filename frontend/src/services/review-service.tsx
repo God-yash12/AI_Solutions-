@@ -103,6 +103,17 @@ export const ReviewServices = () => {
     }
 
 
+    const getTotalReviewsCount = async () => {
+        const response = await reviewInstance.get('/total-reviews');
+        return response.data;
+      }
+    
+      const { data: totalReview, isLoading: isLoadingReviews, error: reviewError } = useQuery({
+        queryKey: ["eventlists"],
+        queryFn: getTotalReviewsCount,
+      })
+
+
 return {
     data,
     error,
@@ -111,6 +122,9 @@ return {
     approveLoading,
     approveError,
     onDeleteReview,
-    handleApproveReview
+    handleApproveReview,
+    totalReview, 
+    reviewError,
+    isLoadingReviews,
 };
 };

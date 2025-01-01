@@ -6,7 +6,7 @@ const AdminDashboard = () => {
   return (
     <div className="flex flex-col gap-10">
       <CounterCards />
-     <Inquiries />
+      <Inquiries />
     </div>
   )
 }

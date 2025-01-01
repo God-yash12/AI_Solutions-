@@ -3,7 +3,7 @@ import axios, { AxiosInstance} from "axios";
 
 const useAxiosPrivate = (): AxiosInstance => {
   const axiosPrivate: AxiosInstance = axios.create({
-    baseURL: "http://localhost:5004/api/admin",
+    baseURL: "http://localhost:5000/api/admin",
     headers: {
       "Content-Type": "application/json",
     },

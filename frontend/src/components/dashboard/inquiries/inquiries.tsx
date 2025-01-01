@@ -20,7 +20,7 @@ interface ResponseMessage {
 }
 
 const Inquiries = () => {
-  const { data, isLoading, error, onSubmit } = useInquiryServices();
+  const { data, isLoading, error, onSubmit, handleDelete } = useInquiryServices();
   const [open, setOpen] = useState(false);
   const [selectedInquiry, setSelectedInquiry] = useState<InquiryProps | null>(null);
   const [responseMessage, setResponseMessage] = useState("");
@@ -48,12 +48,12 @@ const Inquiries = () => {
           email: selectedInquiry.email,
           id: selectedInquiry._id,
         });
-        setRespondedInquiries((prev) => new Set(prev.add(selectedInquiry._id))); // Mark as responded
-        handleClose(); // Close modal after successful response
+        setRespondedInquiries((prev) => new Set(prev.add(selectedInquiry._id)));
+        handleClose();
       } catch (error) {
-        console.error("Error sending response:", error); // Handle error
+        console.error("Error sending response:", error);
       } finally {
-        setIsSubmitting(false); // Reset loader state
+        setIsSubmitting(false);
       }
     }
   };
@@ -75,11 +75,14 @@ const Inquiries = () => {
             <td>
               <SecondaryButton
                 onClick={() => handleOpen(item)}
-                disabled={respondedInquiries.has(item._id)} // Disable button if inquiry has been responded
+                disabled={respondedInquiries.has(item._id)}
               >
                 Respond
               </SecondaryButton>
             </td>
+           <td>
+            <PrimaryButton onClick={() => handleDelete(item._id)}>Delete</PrimaryButton>
+           </td>
           </tr>
         ))}
       </Table>

@@ -58,12 +58,7 @@ const Footer: React.FC = () => {
                   Blogs
                 </Link>
               </li>
-              <li className="flex items-center">
-                <MdArrowForward className="text-blue-900 mr-2" size={18} />
-                <Link to="/inquiry" className="text-gray-300 hover:text-white transition duration-200">
-                  Inquiry
-                </Link>
-              </li>
+             
             </ul>
           </div>
 

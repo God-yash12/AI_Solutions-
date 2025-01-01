@@ -3,7 +3,7 @@ import axios from 'axios';
 const useAxiosPrivateEvent = () => {
 
   const axiosPrivate = axios.create({
-    baseURL: "http://localhost:5004/api/admin",
+    baseURL: "http://localhost:5000/api/admin",
   });
   
   return axiosPrivate;

@@ -49,7 +49,7 @@ const ContactForm = () => {
               {/* Event Details Textarea */}
               <TextareaAutosize
                 className="text-lg lg:w-[20rem] md:w-80 sm:w-72 font-sans font-normal leading-5 px-3 py-4 rounded-lg shadow-md border border-solid border-slate-300 focus:ring-1 focus:ring-purple-500 focus:outline-none"
-                placeholder="Event Details"
+                placeholder="Job Details"
                 minRows={4}
                 {...register("jobDetails")}
               />

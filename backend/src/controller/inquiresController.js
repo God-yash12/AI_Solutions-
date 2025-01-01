@@ -1,6 +1,7 @@
 const { response } = require("express");
 const InquiryModel = require("../model/inquiryModel");
 const sendResponse = require("../utils/sendMail");
+const inquiryModel = require("../model/inquiryModel");
 
 const createInquiry = async (req, res) => {
   const { title, email, description } = req.body;
@@ -70,8 +71,45 @@ const respondInquiry = async (req, res) => {
   }
 };
 
+
+const getTotalInquiry = async (req, res) => {
+  try {
+     const totalInquiry = await InquiryModel.countDocuments();
+     res.status(200).json({message: `total inquiries are ${totalInquiry}`, data: totalInquiry})
+    
+   } catch (error) {
+    console.log(error, "inquiry count error")
+    res.status(500).json({message: "Failed to count the Inquiries", error: error.message})
+   }
+}
+
+// delete inquiry 
+
+const deleteInquiry = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    if (!id) {
+      return res.status(400).json({ error: "Inquiry ID is required." });
+    }
+
+    const result = await InquiryModel.findByIdAndDelete(id);
+
+    if (!result) {
+      return res.status(404).json({ error: "Inquiry not found." });
+    }
+
+    return res.status(200).json({ message: "Inquiry deleted successfully." });
+  } catch (error) {
+    console.error("Error deleting inquiry:", error);
+    return res.status(500).json({ error: "An error occurred while deleting the inquiry." });
+  }
+};
+
 module.exports = {
   createInquiry,
   getInquires,
   respondInquiry,
+  getTotalInquiry,
+  deleteInquiry,
 };

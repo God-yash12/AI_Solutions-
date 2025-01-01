@@ -3,7 +3,7 @@ import axios from 'axios';
 const useAxiosPrivateBlog = () => {
 
   const axiosPrivateblog = axios.create({
-    baseURL: "http://localhost:5004/api/blog",
+    baseURL: "http://localhost:5000/api/blog",
   });
   
   return axiosPrivateblog;

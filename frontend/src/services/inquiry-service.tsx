@@ -52,20 +52,20 @@ export const useInquiryServices = () => {
   };
 
 
-    // Handle submitting a new inquiry
-    const {
-      register,
-      handleSubmit,
-      reset,
-      formState: { errors },
-    } = useForm<InquiryProps>({
-      mode: "onChange",
-      defaultValues: {
-        title: "",
-        email: "",
-        description: "",
-      },
-    });
+  // Handle submitting a new inquiry
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<InquiryProps>({
+    mode: "onChange",
+    defaultValues: {
+      title: "",
+      email: "",
+      description: "",
+    },
+  });
 
   // Mutation for creating a new inquiry
   const { mutateAsync: createInquiry } = useMutation({
@@ -84,11 +84,41 @@ export const useInquiryServices = () => {
   });
 
 
-
-
   const handleInquirySubmit = async (data: InquiryProps) => {
-    await createInquiry(data); 
+    await createInquiry(data);
   };
 
-  return { data, isLoading, error, onSubmit, handleInquirySubmit, register, handleSubmit, errors };
+  // delete inqruies 
+  const {mutateAsync: deleteMutation} = useMutation({
+    mutationFn: async (id: string) => {
+
+      if (!id) {
+        toast.error("Inquiry doesnot found ")
+      }
+      const response = await inquiryInstance.delete(`/delete-inquiry/${id}`)
+      return response.data;
+    },
+    onSuccess: () => {
+      toast.success("Inquiry Deleted Successfully")
+    },
+    onError: (error: any) => {
+      toast.error(`Failed to delete Inquiry ${error.message}`);
+    }
+  })
+
+  const handleDelete = async (id: string) => {
+    deleteMutation(id)
+  }
+
+  const getInquiryCount = async () => {
+    const response = await inquiryInstance.get("/total-inquiry");
+    console.log(response.data)
+    return response.data;
+  }
+
+  const { data: countInquiry, isLoading: isLoadingInquiries, error: countInquiryError } = useQuery({
+    queryKey: ["inquiries"],
+    queryFn: getInquiryCount,
+  })
+  return { data, isLoading, error, onSubmit, handleInquirySubmit, register, handleSubmit, errors, countInquiry, countInquiryError, isLoadingInquiries, handleDelete };
 };

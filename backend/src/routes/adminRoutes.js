@@ -6,6 +6,7 @@ const {signupController}=require('../controller/signupController')
 const upload = require('../middleware/imageMiddleware')
 const controller = require("../controller/eventController");
 const validateToken = require("../controller/refreshTokenController")
+const dshboardController = require("../controller/dashboardController")
 
 router.post('/signup', signupController)
 router.post("/login",  loginController.adminLoginController);
@@ -16,6 +17,7 @@ router.get('/get-event/:id', controller.getEventById)
 router.delete('/delete-event/:id', controller.deleteEventById);
 router.put('/update-event/:id', upload.array('images'), controller.updateEvent)
 router.get("/total-events", controller.totalEvents)
+router.get("/dashboard-counter", dshboardController.getDashboardCounts )
 router.get('/refresh', validateToken.validateTokenController)
 
 module.exports=router

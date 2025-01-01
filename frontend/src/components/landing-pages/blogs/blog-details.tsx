@@ -32,7 +32,7 @@ const BlogDetails = () => {
                 <img
                     src={blogData.image}
                     alt={blogData.title}
-                    className="w-full h-auto rounded-md"
+                    className="w-1/2 h-auto rounded-md"
                 />
                 <p className="text-gray-800 font-semibold text-xl">By: AI solution</p>
             </div>

@@ -2,26 +2,24 @@ import { useState, useEffect } from "react";
 import { ReviewServices } from "../../../services/review-service";
 import ReviewCard from "../../ui/card/review-card";
 import UserReviewForm from "../../form/user-reviews-form";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa"; 
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import Loader from "../../loader/loader";
 import InquiryForm from "../../form/Inquiry-form";
 
 const Review = () => {
-  const { approvedData, approveLoading, approveError } = ReviewServices();
+  const { approvedData = [], approveLoading, approveError } = ReviewServices(); // Default to empty array
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
-    const autoSlide = setInterval(() => {
-      setCurrentIndex((preIndex) => {
-         if(preIndex < approvedData.length){
-          return preIndex - 1
-         }else{
-          return preIndex;
-         }
-      })
-    }, 5000); 
+    if (approvedData.length > 0) {
+      const autoSlide = setInterval(() => {
+        setCurrentIndex((preIndex) =>
+          preIndex < approvedData.length - 1 ? preIndex + 1 : 0
+        );
+      }, 5000);
 
-    return () => clearInterval(autoSlide); 
+      return () => clearInterval(autoSlide);
+    }
   }, [approvedData]);
 
   // Handle next and previous slide
@@ -82,7 +80,7 @@ const Review = () => {
           {/* Navigation Buttons */}
           <button
             onClick={prevReview}
-            className="absolute top-1/2 left-4 lg:left-44 transform -translate-y-1/2 px-4 py-2 text-2xl  rounded-full opacity-90 hover:opacity-100 transition"
+            className="absolute top-1/2 left-4 lg:left-44 transform -translate-y-1/2 px-4 py-2 text-2xl rounded-full opacity-90 hover:opacity-100 transition"
           >
             <FaArrowLeft />
           </button>

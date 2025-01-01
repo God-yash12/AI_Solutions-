@@ -8,6 +8,6 @@ reviewRouter.get("/get-reviews", controller.getAllReviews);
 reviewRouter.delete("/delete-review/:id", controller.deleteReview)
 reviewRouter.patch('/approve/:id', controller.approveReview);
 reviewRouter.get("/approved-reviews", controller.getApprovedReviews)
-reviewRouter.get("/total-review", controller.getTotalReviews)
+reviewRouter.get("/total-reviews", controller.getTotalReviews)
 
 module.exports = reviewRouter;

@@ -54,7 +54,5 @@ export const useContactServices = () => {
         queryFn: getContacts,
     })
 
-
-
     return { register, handleSubmit, errors, control, onSubmit, data, isLoading, error };
 };

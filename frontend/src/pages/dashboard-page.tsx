@@ -1,4 +1,5 @@
-import AdminDashboard from "../components/dashboard/dashboard";
+import CounterCards from "../components/dashboard/counter-card/counter-card-dashboard";
+import Inquiries from "../components/dashboard/inquiries/inquiries";
 
 
 const AdminDashboardPage = () => {
@@ -6,8 +7,10 @@ const AdminDashboardPage = () => {
     <div
       className="grid grid-rows-2 mt-10"
     >
-
-      <AdminDashboard />
+      <div className="flex flex-col gap-10">
+        <CounterCards />
+        <Inquiries />
+      </div>
 
     </div>
   )
