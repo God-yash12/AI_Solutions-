@@ -29,10 +29,8 @@ app.use(cors({
 }));
 
 
-
 // Database connection 
 DBConnection();
-
 
 // Routing
 app.use("/api/admin", adminRoutes)

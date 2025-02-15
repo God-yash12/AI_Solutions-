@@ -48,7 +48,7 @@ export const BlogServices = () => {
 
       const onSubmit = async (data: BlogFormInputs) => {
         const formData = new FormData();
-        formData.append('title', data.title);
+        formData.append('title', data.title); 
         formData.append('content', data.content);
     
         // Append the image file
